@@ -76,6 +76,32 @@ Setelah repo di-push ke GitHub, status build bisa dipantau di tab **Actions**. T
 [![CI](https://github.com/<username>/tokokita/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/tokokita/actions/workflows/ci.yml)
 ```
 
+## Build APK Android
+
+Aplikasi ini bisa dikemas menjadi **APK Android** menggunakan [Capacitor](https://capacitorjs.com) — seluruh aplikasi web dibundel ke dalam aplikasi Android sehingga bisa berjalan **offline**.
+
+**Cara build (via GitHub Actions — tanpa install apa pun):**
+
+1. Buka tab **Actions** di repo GitHub Anda.
+2. Pilih workflow **Build APK** di sidebar kiri.
+3. Klik tombol **Run workflow** → **Run workflow**.
+4. Tunggu ± 5–10 menit, lalu buka run yang selesai.
+5. Di bagian bawah halaman run, unduh artefak **TokoKita-APK** → ekstrak → dapat file `TokoKita-debug.apk`.
+6. Pindahkan ke HP Android, buka, dan izinkan *install dari sumber tidak dikenal* (APK debug belum ditandatangani Play Store).
+
+Hasil APK adalah **debug build** — cocok untuk dipakai sendiri / uji coba. Untuk publikasi ke Play Store diperlukan signing release (lihat [dokumentasi Capacitor](https://capacitorjs.com/docs/android/deploying-to-google-play)).
+
+**Build manual di komputer** (butuh JDK 21 + Android SDK):
+
+```bash
+bun install
+bun run build:static   # static export ke folder out/
+bunx cap add android   # sekali saja, buat project android/
+bunx cap sync android  # salin aset web ke project android
+cd android && ./gradlew assembleDebug
+# hasil: android/app/build/outputs/apk/debug/app-debug.apk
+```
+
 ## Memasang di HP (PWA)
 
 1. Buka aplikasi (hasil deploy) di browser HP.
