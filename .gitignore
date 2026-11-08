@@ -17,6 +17,9 @@ node_modules
 /.next/
 /out/
 
+# capacitor / android (dibuat otomatis oleh workflow build APK)
+/android/
+
 # production
 /build
 
@@ -63,4 +66,4 @@ server.log
 /tests/
 /db/
 /download
-*.db
+*.db/upload/
