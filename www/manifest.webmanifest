@@ -1,0 +1,11 @@
+{
+  "name": "StokPO Mobile Commerce",
+  "short_name": "StokPO",
+  "description": "Aplikasi stok, PO, penjualan, modal, keuntungan, dan varian produk.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8f9fc",
+  "theme_color": "#51439b",
+  "orientation": "portrait-primary",
+  "lang": "id-ID"
+}
